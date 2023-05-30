@@ -29,9 +29,9 @@ class ApiManager(metaclass=Singleton):
     def create_chat_completion(
         self,
         messages: list,
-        model: str | None = None,
+        model: Optional[str] = None,
         temperature: float = None,
-        max_tokens: int | None = None,
+        max_tokens: Optional[int] = None,
         deployment_id=None,
     ) -> str:
         """
