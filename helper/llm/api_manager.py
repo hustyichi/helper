@@ -69,7 +69,9 @@ class ApiManager(metaclass=Singleton):
             prompt_tokens = response.usage.prompt_tokens
             completion_tokens = response.usage.completion_tokens
             self.update_cost(prompt_tokens, completion_tokens, model)
-        return response
+
+        resp = response.choices[0].message["content"]
+        return resp
 
     def update_cost(self, prompt_tokens, completion_tokens, model: str):
         """
