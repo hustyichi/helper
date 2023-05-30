@@ -5,7 +5,7 @@ from helper.search import web_selenium
 
 
 def test_search_content(search_content):
-    ret = search.duckduckgo_search(search_content)
+    ret = search.duckduckgo_search(search_content, num_results = 3)
     for d in ret:
         print(f"---------> search {d['href']}: ")
 
@@ -17,6 +17,8 @@ def test_search_content(search_content):
         print(content)
 
         if not content.startswith("Error"):
+            max_len = 4096
+            content = content[0: max_len]
             summary_content = text.summarize_text(content, search_content)
             print(summary_content)
 
