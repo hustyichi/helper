@@ -17,7 +17,7 @@ def test_search_content(search_content):
         print(content)
 
         if not content.startswith("Error"):
-            max_len = 4096
+            max_len = 3096
             content = content[0: max_len]
             summary_content = text.summarize_text(content, search_content)
             print(summary_content)
